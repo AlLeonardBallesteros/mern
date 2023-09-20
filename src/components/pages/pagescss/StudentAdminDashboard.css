@@ -1,0 +1,38 @@
+.navbar {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: auto;
+    background-color: #f4f6fc;
+    overflow-y: auto;
+    z-index: auto;
+}
+.nav-link,
+.nav-dropdown,
+.dropdown-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    margin: 15px 0;
+    border-bottom: 1px solid black;
+    padding:  20px;
+    text-transform: uppercase;
+}
+.navbar {
+    flex-direction: column;
+    align-items: center;
+}
+.dashboard{
+    height: 100vh;
+    background-color: #050a30;
+}
+.navbar .nav-link.active {
+    background-color: #9fb2eb;
+    color: white;
+}
+
+  

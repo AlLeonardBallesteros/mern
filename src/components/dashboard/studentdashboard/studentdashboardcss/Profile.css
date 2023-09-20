@@ -1,0 +1,21 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: center; 
+    height: 80vh; 
+    text-align: center; 
+    margin-left: 20%;
+}
+.profile-container label, h1, p {
+    color: white;
+}
+.profile-container h1 {
+    margin-bottom: 10%;
+}
+.horizontal {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-bottom: 10%;
+}

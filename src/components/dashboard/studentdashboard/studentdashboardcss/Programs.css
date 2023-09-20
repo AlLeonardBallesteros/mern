@@ -1,0 +1,11 @@
+.programs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 40px;
+}
+.programs h2{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
