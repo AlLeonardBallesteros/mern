@@ -1,0 +1,15 @@
+.top-paragraphs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+.bottom-paragraphs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+.top-paragraphs, .bottom-paragraphs p{
+    gap: 5px;
+}
