@@ -41,7 +41,6 @@ const Profile = () => {
         value={student.name}
         onChange={handleChange}
       />
-      <p>(LASTNAME FIRSTNAME, MIDDLE NAME)</p>
       <TextField
         label="Address"
         value={student.address}

@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
+import './admindashboardcss/AdminProfile.css';
 
 const Profile = () => {
   const [admin, setAdmin] = React.useState({
@@ -25,7 +26,6 @@ const Profile = () => {
         value={admin.name}
         onChange={handleChange}
       />
-      <p>(LASTNAME FIRSTNAME, MIDDLE NAME)</p>
       <TextField
         label="Birthdate"
         value={admin.birthdate}

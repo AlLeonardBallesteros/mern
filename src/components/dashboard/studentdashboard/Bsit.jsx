@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './studentdashboardcss/Courses.css';
 import bsit1 from './img/bsit1.jpg';
 import bsit2 from './img/bsit2.jpg';
@@ -7,6 +7,7 @@ import bsit3 from './img/bsit3.jpg';
 const Bsit = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const images = [
     {
@@ -48,8 +49,19 @@ const Bsit = () => {
     }
   };
 
+  // Update screenWidth state when the window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="image-gallery">
+    <div className={`image-gallery ${screenWidth >= 768 ? 'large-screen' : ''}`}>
       {images.map((image, index) => (
         <div key={image.id} className="gallery-item">
           <img

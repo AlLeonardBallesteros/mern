@@ -1,11 +1,10 @@
 .home-container {
-    bottom: 10px;
-    right: 10px;
-    width: 70%;  
-    padding: 20px;
-    border-radius: 10px;
-    align-items: center;
-    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    margin: 0 auto;
   }
   .home-container  h2{
       align-items: center;
@@ -13,8 +12,7 @@
       font-weight: bold;
       font-size: 18px;
       color: white;
-      margin-bottom: 25px;
-      margin-top: 26px;
+
       text-transform: uppercase;
   }
   .home-container h3, p{
@@ -22,8 +20,6 @@
       font-weight: bold;
       font-size: 18px;
       color: #a5ff93;
-      margin-bottom: 25px;
-      margin-top: 26px;
       text-transform: uppercase;
   }
   .center {
@@ -33,4 +29,13 @@
       font-size: 18px;
       color: white;
   }
+  .content-container {
+    max-width: 800px; 
+    padding: 20px;
+  }
   
+  @media (min-width: 768px) {
+    .content-container {
+      padding: 40px;
+    }
+  }

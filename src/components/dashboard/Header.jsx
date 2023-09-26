@@ -1,11 +1,15 @@
 import React from 'react'
-import './Header.css'
+import 
+ { BsJustify}
+ from 'react-icons/bs'
 
-function Header() {
+function Header({OpenSidebar}) {
   return (
-    <div className="header" >
-        <h2>header</h2>
-    </div>
+    <header className='header'>
+        <div className='menu-icon'>
+            <BsJustify className='icon' onClick={OpenSidebar}/>
+        </div>
+    </header>
   )
 }
 

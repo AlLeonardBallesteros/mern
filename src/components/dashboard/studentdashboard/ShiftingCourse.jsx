@@ -66,8 +66,8 @@ function ShiftingCourse() {
         onChange={(e) => setNewCourse(e.target.value)}/>
       </div>
     </div>
-    <div id="last" className="shift-row">
-      <div id="last" className="shift-column">
+    <div className="shift-row-last">
+      <div className="shift-column-last">
         <label  htmlFor="course">Reason for changing course*</label>
         <input 
         type="text" 
