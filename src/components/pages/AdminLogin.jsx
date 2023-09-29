@@ -7,9 +7,8 @@ function AdminLogin() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (email === '') {
       alert('Email is required');
@@ -19,17 +18,25 @@ function AdminLogin() {
       return;
     }
 
-    if (email === 'admin@gmail.com' && password === 'admin') {
-      setIsLoggedIn(true);
-      navigate('/admin-dashboard/dashboard');
-    } else {
-      alert('Invalid email or password');
+    try {
+      const response = await fetch('https://localhost:3000/api/admin-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        navigate('/admin-dashboard/dashboard');
+      } else {
+        alert('Invalid email or password');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Login failed. Please try again later.');
     }
   };
-
-  if (isLoggedIn) {
-    navigate('/admin-dashboard/dashboard');
-  }
 
   return (
     <div className="login-page">

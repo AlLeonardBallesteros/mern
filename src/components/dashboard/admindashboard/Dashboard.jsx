@@ -5,8 +5,8 @@ import './admindashboardcss/Dashboard.css';
 
 class Dashboard extends Component {
   state = {
-    registeredStudents: 4,
-    shifteeStudents: 4,
+    registeredStudents: 7,
+    shifteeStudents: 111,
   };
 
   chartRef = React.createRef();

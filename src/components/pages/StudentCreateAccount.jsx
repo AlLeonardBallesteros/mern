@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './pagescss/StudentCreateAccount.css';
 
 function StudentCreateAccountForm() {
@@ -10,14 +11,30 @@ function StudentCreateAccountForm() {
 
   const navigate = useNavigate();
 
-  const handleCreateAccount = () => {
-    if (firstName === '' || lastName === '' || email === '' || password === '') {
-      alert('All fields are required');
-    } else {
-      alert('Account created successfully');
-      navigate('/student-dashboard');
-    }
-  };
+    const handleCreateAccount = async () => {
+      if (firstName === '' || lastName === '' || email === '' || password === '') {
+        alert('All fields are required');
+      } else {
+        try {
+          const response = await axios.post('https://localhost:3000/api/signup', {
+            firstName,
+            lastName,
+            email,
+            password,
+          });
+  
+          if (response.status === 200) {
+            alert('Account created successfully');
+            navigate('/student-dashboard');
+          } else {
+            alert('Registration failed');
+          }
+        } catch (error) {
+          console.error('Error during registration:', error);
+          alert('Registration failed');
+        }
+      }
+    };
 
   return (
     <div className="create-account-page">
@@ -68,11 +85,12 @@ function StudentCreateAccountForm() {
         </div>
       </form>
       <div className="button-group">
-      <Link to="/student-login" className="login-button">SIGN IN</Link>
+      <Link to="/student-login" className="login-button">Log in</Link>
       </div>
     </div>
     </div>
   );
 }
+
 
 export default StudentCreateAccountForm;

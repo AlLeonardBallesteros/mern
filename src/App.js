@@ -6,7 +6,9 @@ import AdminLogin from './components/pages/AdminLogin';
 import StudentCreateAccount from './components/pages/StudentCreateAccount';
 import StudentDashboard from './components/pages/StudentDashboard';
 import AdminDashboard from './components/pages/AdminDashboard';
-
+import ForgotPassword from './components/pages/forgotpassword/ForgotPassword';
+import ResetPassword from './components/pages/forgotpassword/ResetPassword';
+import SuccessMessage from './components/pages/forgotpassword/SuccessMessage';
 
 
 
@@ -20,6 +22,9 @@ function App() {
         <Route path="student-create-account" element={<StudentCreateAccount />} />
         <Route path="student-dashboard/*" element={<StudentDashboard />} />
         <Route path="admin-dashboard/*" element={<AdminDashboard />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="reset-password" element={<ResetPassword />} />
+        <Route path="/success" element={<SuccessMessage />} />
       </Routes>
   );
 }

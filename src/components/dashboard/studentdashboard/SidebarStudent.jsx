@@ -6,6 +6,7 @@ import { CgProfile } from 'react-icons/cg';
 import { SiCoursera } from 'react-icons/si';
 import { RiMiniProgramFill } from 'react-icons/ri';
 import { MdComputer } from 'react-icons/md';
+import {BiRegistered} from 'react-icons/bi';
 
 function SidebardStudent({ openSidebarToggle, OpenSidebar }) {
   const [isCiteCoursesOpen, setIsCiteCoursesOpen] = useState(false);
@@ -74,6 +75,11 @@ function SidebardStudent({ openSidebarToggle, OpenSidebar }) {
                 </li>
               </ul>
             )}
+          </li>
+          <li className='sidebar-list-item'>
+            <Link to="/student-dashboard/enrollment">
+              <BiRegistered className='icon' /> Enrollment
+            </Link>
           </li>
           <li className='sidebar-list-item'>
             <Link to="/student-dashboard/shifting-course">

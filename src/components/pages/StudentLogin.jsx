@@ -5,31 +5,28 @@ import './pagescss/StudentAdminLogin.css';
 function StudentLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (email === '') {
-      alert('Email is required');
-      return;
-    } else if (password === '') {
-      alert('Password is required');
-      return;
-    }
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('https://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    if (email === 'student@gmail.com' && password === 'student') {
-      setIsLoggedIn(true);
-      navigate('/student-dashboard/home');
-    } else {
-      alert('Invalid email or password');
+      if (response.ok) {
+        navigate('/student-dashboard/home');
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
     }
   };
-
-  if (isLoggedIn) {
-    navigate('/student-dashboard/home');
-  }
 
   return (
     <div className="login-page">
@@ -61,6 +58,11 @@ function StudentLogin() {
         </button>
         </div>
         </form>
+        <div>
+        <Link to="/forgot-password" className="small-text">
+            <p className="small-text">Forgot Password?</p>
+          </Link>
+        </div>
         <div className="button-group">
         <Link to="/student-create-account" className="create-account-button" >Create Account</Link>
         </div>
