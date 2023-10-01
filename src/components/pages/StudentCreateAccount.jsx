@@ -17,8 +17,8 @@ function StudentCreateAccountForm() {
     } else {
       try {
         const response = await axios.post('http://localhost:4000/user/signup', {
-          firstName,
-          lastName,
+          firstname,
+          lastname,
           email,
           password,
         });
