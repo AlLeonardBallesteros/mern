@@ -29,8 +29,11 @@ function ForgotPassword() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Link to="/reset-password"><button type="submit">Reset Password</button></Link>
-          </form>
+            </form>
+            <div>
+        <button className="button"><Link to="/forgot-password" className="small-text">Submit
+          </Link></button>
+        </div>
           {message && <p>{message}</p>}
         </div>
       </div>

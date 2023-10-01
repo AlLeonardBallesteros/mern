@@ -29,6 +29,11 @@ function SidebarAdmin({openSidebarToggle, OpenSidebar}) {
                 </Link>
             </li>
             <li className='sidebar-list-item'>
+                <Link to="/admin-dashboard/enrollees">
+                    <BiRegistered className='icon'/> Enrollees
+                </Link>
+            </li>
+            <li className='sidebar-list-item'>
                 <Link to="/admin-dashboard/registered-student">
                     <BiRegistered className='icon'/> Registered Students
                 </Link>

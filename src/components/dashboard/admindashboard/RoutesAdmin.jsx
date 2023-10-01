@@ -1,6 +1,7 @@
 import React from 'react'
 import Dashboard from './Dashboard';
 import AdminProfile from './AdminProfile';
+import Enrollees from './Enrollees';
 import RegisteredStudent from './RegisteredStudent';
 import ShifeeStudent from './ShifteeStudent';
 import { Route, Routes } from 'react-router-dom';
@@ -11,6 +12,7 @@ function RoutesAdmin() {
         <Routes>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="admin-profile" element={<AdminProfile />} />
+          <Route path="enrollees" element={<Enrollees />} />
           <Route path="registered-student" element={<RegisteredStudent />} />
           <Route path="shiftee-student" element={<ShifeeStudent />} />
         </Routes>
