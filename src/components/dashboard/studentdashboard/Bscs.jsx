@@ -49,6 +49,12 @@ const Bscs = () => {
   };
 
   return (
+    <div className="animation-container">
+    <div className="centered-text">
+      <p>
+      A Bachelor of Science in Computer Science (BSCS) is a four-year undergraduate program that equips students with the knowledge and skills to design, develop, and maintain software and computer systems. Salary rates for BSCS professionals vary, with entry-level salaries ranging from $60,000 to $80,000 in the US, and can be influenced by industry demand and market conditions.
+      </p>
+    </div>
     <div className="image-gallery">
       {images.map((image, index) => (
         <div key={image.id} className="gallery-item">
@@ -59,22 +65,22 @@ const Bscs = () => {
           />
         </div>
       ))}
-
-      {modalOpen && selectedIndex !== null && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <img src={images[selectedIndex].src} alt={images[selectedIndex].caption} />
-            <p>{images[selectedIndex].caption}</p>
-            <button onClick={goToPreviousImage}>Previous</button>
-            <button onClick={goToNextImage}>Next</button>
-          </div>
-        </div>
-      )}
     </div>
-  );
+    {modalOpen && selectedIndex !== null && (
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close" onClick={closeModal}>
+            &times;
+          </span>
+          <img src={images[selectedIndex].src} alt={images[selectedIndex].caption} />
+          <p>{images[selectedIndex].caption}</p>
+          <button onClick={goToPreviousImage}>Previous</button>
+          <button onClick={goToNextImage}>Next</button>
+        </div>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default Bscs;

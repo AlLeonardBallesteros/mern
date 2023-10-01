@@ -7,13 +7,25 @@ function Enrollment() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
-  const [course, setCourse] = useState('');
-  const [department, setDepartment] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState(''); // Use selectedCourse instead of course
 
   const navigate = useNavigate();
 
+  const courseOptions = [
+    'Animation',
+    'Web Dev',
+    'Sys Dev',
+    'Bscs',
+  ];
+
   const handleEnrollment = () => {
-    if (firstName === '' || lastName === '' || email === '' || number === '' || course === '' || department === '') {
+    if (
+      firstName === '' ||
+      lastName === '' ||
+      email === '' ||
+      number === '' ||
+      selectedCourse === ''
+    ) {
       alert('All fields are required');
     } else {
       alert('Enrollment request successfully');
@@ -73,25 +85,19 @@ function Enrollment() {
       <div className="row">
         <div className="column">
           <label htmlFor="course">Course*</label>
-          <input
-            type="text"
+          <select
             id="course"
             name="input5"
-            value={course}
-            onChange={(e) => setCourse(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="row">
-        <div className="column">
-          <label htmlFor="department">Department*</label>
-          <input
-            type="text"
-            id="department"
-            name="input6"
-            value={department}
-            onChange={(e) => setDepartment(e.target.value)}
-             />
+            value={selectedCourse}
+            onChange={(e) => setSelectedCourse(e.target.value)}
+          >
+            <option value="">Select a Course</option>
+            {courseOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       <div className="button-group">

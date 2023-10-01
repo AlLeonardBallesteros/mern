@@ -49,6 +49,12 @@ const Webdev = () => {
   };
 
   return (
+    <div className="animation-container">
+    <div className="centered-text">
+      <p>
+      Web development involves creating and maintaining websites and applications using programming languages, frameworks, and tools. Salary rates for web developers vary based on location, experience, skills, and role. In the US, average annual salaries range from $50,000 to $120,000. Junior developers earn less, while senior or specialized developers earn more.
+      </p>
+    </div>
     <div className="image-gallery">
       {images.map((image, index) => (
         <div key={image.id} className="gallery-item">
@@ -59,22 +65,21 @@ const Webdev = () => {
           />
         </div>
       ))}
-
-      {modalOpen && selectedIndex !== null && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <img src={images[selectedIndex].src} alt={images[selectedIndex].caption} />
-            <p>{images[selectedIndex].caption}</p>
-            <button onClick={goToPreviousImage}>Previous</button>
-            <button onClick={goToNextImage}>Next</button>
-          </div>
-        </div>
-      )}
     </div>
-  );
+    {modalOpen && selectedIndex !== null && (
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close" onClick={closeModal}>
+            &times;
+          </span>
+          <img src={images[selectedIndex].src} alt={images[selectedIndex].caption} />
+          <p>{images[selectedIndex].caption}</p>
+          <button onClick={goToPreviousImage}>Previous</button>
+          <button onClick={goToNextImage}>Next</button>
+        </div>
+      </div>
+    )}
+  </div>
+);
 };
-
 export default Webdev;

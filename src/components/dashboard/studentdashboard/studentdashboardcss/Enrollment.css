@@ -1,10 +1,10 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh; 
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  margin: 0 auto;
   }
   .row {
     display: flex;
@@ -44,10 +44,9 @@
     font-weight: bold;
     text-transform: uppercase;
   }
-  .row:nth-last-child(3),
-  .row:nth-last-child(2) {
-      width: 150%;
-      height: 100px; 
+  input, select {
+    width: 100%;
+    padding: 5px;
   }
   
   

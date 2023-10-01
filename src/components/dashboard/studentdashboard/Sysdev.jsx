@@ -49,6 +49,12 @@ const Sysdev = () => {
   };
 
   return (
+    <div className="animation-container">
+    <div className="centered-text">
+      <p>
+      A Bachelor of Science in Information Technology with a specialization in Systems Development (BSIT Sys Dev) is a degree program focusing on software system design, development, and maintenance. Graduates can create secure software solutions for various industries. Salary rates vary based on location, experience, and role, with skilled professionals earning over $100,000 per year.
+      </p>
+    </div>
     <div className="image-gallery">
       {images.map((image, index) => (
         <div key={image.id} className="gallery-item">
@@ -59,22 +65,22 @@ const Sysdev = () => {
           />
         </div>
       ))}
-
-      {modalOpen && selectedIndex !== null && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <img src={images[selectedIndex].src} alt={images[selectedIndex].caption} />
-            <p>{images[selectedIndex].caption}</p>
-            <button onClick={goToPreviousImage}>Previous</button>
-            <button onClick={goToNextImage}>Next</button>
-          </div>
-        </div>
-      )}
     </div>
-  );
+    {modalOpen && selectedIndex !== null && (
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close" onClick={closeModal}>
+            &times;
+          </span>
+          <img src={images[selectedIndex].src} alt={images[selectedIndex].caption} />
+          <p>{images[selectedIndex].caption}</p>
+          <button onClick={goToPreviousImage}>Previous</button>
+          <button onClick={goToNextImage}>Next</button>
+        </div>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default Sysdev;

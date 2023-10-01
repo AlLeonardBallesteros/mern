@@ -50,3 +50,7 @@ input {
     color: white;
     text-align: center; 
 }
+input, select { /* Apply the styles to both input and select elements */
+    width: 100%;
+    padding: 5px;
+  }

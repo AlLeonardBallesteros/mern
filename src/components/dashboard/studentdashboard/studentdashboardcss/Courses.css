@@ -5,6 +5,7 @@
     transform: translate(-50%, -50%);
     padding: 10px;
     margin: 0 auto;
+    margin-top: 10px;
 }
 .image-gallery {
     display: flex;
@@ -58,4 +59,10 @@
 .modal img {
     max-width: 100%;
     height: auto;
+}
+  .centered-text {
+    text-align: center; 
+    margin-top: 10%; 
+    font-size: 18px;
+    max-width: 600px;
 }

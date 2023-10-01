@@ -79,7 +79,7 @@ function StudentCreateAccountForm() {
             onChange={(e) => setPassword(e.target.value)}/>
       </div>
       <div className="button-group">
-        <button type onClick={handleCreateAccount} className="create-account-button">
+        <button type="button"  onClick={handleCreateAccount} className="create-account-button">
           SUMBIT
         </button>
         </div>
