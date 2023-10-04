@@ -5,7 +5,7 @@ function Enrollees() {
     const [enrollmentRequests, setEnrollmentRequests] = useState([]);
 
     useEffect(() => {
-      fetch('/api/enrollment-requests')     
+      fetch('http://localhost:3001/get')     
         .then((response) => response.json())
         .then((data) => setEnrollmentRequests(data))
         .catch((error) => console.error('Error fetching enrollment requests:', error));

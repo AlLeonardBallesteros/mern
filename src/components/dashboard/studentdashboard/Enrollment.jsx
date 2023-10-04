@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './studentdashboardcss/Enrollment.css';
 import { useNavigate } from 'react-router-dom';
+import Axios from 'axios';
 
 function Enrollment() {
   const [firstName, setFirstName] = useState('');
@@ -18,7 +19,7 @@ function Enrollment() {
     'Bscs',
   ];
 
-  const handleEnrollment = () => {
+  const handleEnrollment = async () => {
     if (
       firstName === '' ||
       lastName === '' ||
@@ -28,8 +29,21 @@ function Enrollment() {
     ) {
       alert('All fields are required');
     } else {
-      alert('Enrollment request successfully');
-      navigate('/student-dashboard/home');
+      try {
+        const response = await Axios.post('http:localhost3000//api/enrollment', {
+          course: selectedCourse,
+        });
+  
+        if (response.status === 201) {
+          alert('Enrollment request successful');
+          navigate('/student-dashboard/home');
+        } else {
+          alert('Enrollment request failed');
+        }
+      } catch (error) {
+        console.error('Enrollment error:', error);
+        alert('Enrollment request failed');
+      }
     }
   };
 
