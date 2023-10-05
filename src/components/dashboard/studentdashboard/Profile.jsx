@@ -61,6 +61,7 @@ const Profile = () => {
     fetchStudentData();
   }, []);
 
+
   return (
     <div className="profile-container">
       <h1>Profile information</h1>
@@ -104,7 +105,8 @@ const Profile = () => {
           shrink: !!student.firstname, // Set shrink to true when there's content
              }}
       />
-      
+      <button onClick={fetchStudentData}>Update</button>
+
     </div>
   );
 };

@@ -28,10 +28,32 @@ function Enrollment() {
     ) {
       alert('All fields are required');
     } else {
-      alert('Enrollment request successfully');
-      navigate('/student-dashboard/home');
+      const enrollmentData = {
+        firstName,
+        lastName,
+        email,
+        number,
+        selectedCourse,
+      };
+  
+      fetch('', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(enrollmentData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert('Enrollment request successfully');
+          navigate('/student-dashboard/home');
+        })
+        .catch((error) => {
+          console.error('Error submitting enrollment request:', error);
+        });
     }
   };
+  
 
   return (
     <div className="form-container">
