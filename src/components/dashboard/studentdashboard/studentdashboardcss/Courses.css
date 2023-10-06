@@ -1,72 +1,115 @@
-.image-gallery {
+.box_container {
+    width: 60%;
+    height: 250px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    margin: 0 auto;
-    margin-top: 10px;
-}
-.image-gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-.gallery-item {
-    margin: 10px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px; 
-    height: 200px; 
-    overflow: hidden; 
-    margin-top: 20%;
+    top: 50%; /* Adjusted top property to center vertically */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.gallery-item img {
-    width: 250%;
-    height: 250%;
-    object-fit: contain; 
-    cursor: pointer;
+.box1, .box2, .box3, .box4 {
+    height: 100%;
+    width: 30%;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-.modal {
+
+.img_box1, .img_box2, .img_box3, .img_box4 {
+    width: 100%;
+    object-fit: cover; 
+    border: 10px;
     display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
 }
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
+
+.box1:hover, .box2:hover, .box3:hover, .box4:hover {
+    width: 80%;
+    transition: all 0.5s;
+    border-radius: 10px;
 }
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+
+@media (max-width: 768px) {
+    .box_container {
+        width: 90%; 
+    }
+
+    .box1, .box2, .box3, .box4 {
+        width: 45%;
+    }
+}
+.center {
+    color: gray;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    margin-top: 50px; 
+
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    opacity: 0;
     cursor: pointer;
+    height: 40px;
+    width: 40px;
+    z-index: 100;
+    
 }
-.modal img {
-    max-width: 100%;
-    height: auto;
-}
-  .centered-text {
-    text-align: center; 
-    margin-top: 10%; 
-    font-size: 18px;
-    max-width: 600px;
-}
-.animation-center{
+
+div {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background: #18191f;
+    color: #555;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 5px rgba(255, 255, 255, 0.5),
+        inset -1px -1px 4px rgba(0, 0, 0, 0.2),
+        inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+        inset 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+@keyframes glow {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+input[type="checkbox"]:checked + div {
+    box-shadow:
+        inset 0 0 2px rgba(255, 255, 25, 0.05),
+        inset 4px 4px 6px rgba(255, 255, 255, 0.02);
+    color: yellow;
+    animation: glow 1.5s linear infinite;
+}
+

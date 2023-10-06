@@ -1,13 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import { BsJustify } from 'react-icons/bs'
 import { AiOutlineLogout } from 'react-icons/ai'
 
 function Header({OpenSidebar}) {
+  const navigate = useNavigate()
   const handleLogout = () => {
-    localStorage.clear();
-  
-    window.location.href = "/";
-
-  };
+  window.localStorage.removeItem("isLoggedin")
+  navigate('/')
+ };
   
   return (
     <header className='header'>
