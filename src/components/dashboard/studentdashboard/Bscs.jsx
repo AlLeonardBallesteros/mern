@@ -4,6 +4,7 @@ import bscs3 from './img/bscs3.jpg';
 import bscs4 from './img/bscs4.jpg';
 import './studentdashboardcss/Courses.css';
 
+
 const Bscs = () => {
   return (
     <div className="box_container">
@@ -11,7 +12,6 @@ const Bscs = () => {
       <Box2 />
       <Box3 />
       <Box4 />
-      
     </div>
   );
 };

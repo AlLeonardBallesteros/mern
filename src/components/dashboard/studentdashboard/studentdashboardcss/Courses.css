@@ -4,12 +4,12 @@
     background-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
+    justify-content: center; 
+    align-items: center; 
     position: absolute;
     left: 50%;
-    top: 50%; /* Adjusted top property to center vertically */
-    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    top: 50%; 
+    transform: translate(-50%, -50%);
     border-radius: 20px;
     padding-top: 10px;
     padding-bottom: 10px;

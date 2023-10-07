@@ -15,7 +15,8 @@ import Header from './components/dashboard/Header';
 
 
 function App() {
-  const login = window.localStorage.getItem("isLoggedin");
+  const login = window.localStorage.getItem("isLoggedin", false);
+  console.log("login status:", login);
   return (
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -32,3 +33,4 @@ function App() {
 }
 
 export default App;
+  

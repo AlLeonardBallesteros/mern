@@ -61,3 +61,12 @@
     font-size: 14px; 
     color: #fff; 
   }
+@media (max-width: 768px) {
+    .login-box {
+      padding: 10px;
+    }
+  
+    .input-group input {
+      width: 100%;
+    }
+  }

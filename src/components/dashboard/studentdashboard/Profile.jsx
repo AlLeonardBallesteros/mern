@@ -59,16 +59,18 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="profile-container">
-      <h1>Profile information</h1>
-      <div className="horizontal">
-        <TextField
-          label="Course"
-          name="course"
-          value={profileData.enrollment.course}
-          onChange={handleChange}
-        />
-      </div>
+
+ <div className="profile-container">
+    <h1>Profile information</h1>
+    <div className="input-row">
+      <TextField
+        label="Course"
+        name="course"
+        value={profileData.enrollment.course}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="input-row">
       <TextField
         label="First Name"
         name="firstname"
@@ -78,6 +80,8 @@ const Profile = () => {
           shrink: !!profileData.user.firstname,
         }}
       />
+    </div>
+    <div className="input-row">
       <TextField
         label="Last Name"
         name="lastname"
@@ -87,6 +91,8 @@ const Profile = () => {
           shrink: !!profileData.user.lastname,
         }}
       />
+    </div>
+    <div className="input-row">
       <TextField
         label="Contact Number"
         name="contact_no"
@@ -96,6 +102,8 @@ const Profile = () => {
           shrink: !!profileData.user.contact_no,
         }}
       />
+    </div>
+    <div className="input-row">
       <TextField
         label="Email Address"
         name="email"
@@ -106,7 +114,8 @@ const Profile = () => {
         }}
       />
     </div>
-  );
-};
+  </div>
+);
+      }
 
 export default Profile;
