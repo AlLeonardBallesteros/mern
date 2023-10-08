@@ -23,6 +23,7 @@ function StudentLogin() {
       } else {
         console.error('Login failed');
       }
+      window.localStorage.setItem("userType", "student");
     } catch (error) {
       console.error('Login error:', error);
     }

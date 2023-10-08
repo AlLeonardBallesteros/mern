@@ -12,16 +12,20 @@ import SuccessMessage from './components/pages/forgotpassword/SuccessMessage';
 import Header from './components/dashboard/Header';
 
 
-
-
 function App() {
-  const login = window.localStorage.getItem("isLoggedin", false);
-  console.log("login status:", login);
+  const userType = window.localStorage.getItem("userType");
+  console.log("User type:", userType);
   return (
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="admin-login" element={login ? <Header/> : <AdminLogin />} />
-        <Route path="student-login" element={login ? <Header/> : <StudentLogin />} />
+      <Route
+        path="admin-login"
+        element={
+          userType === "admin" ? <Header /> : <AdminLogin />}/>
+      <Route
+        path="student-login"
+        element={
+          userType === "student" ? <Header /> : <StudentLogin />}/>
         <Route path="student-create-account" element={<StudentCreateAccount />} />
         <Route path="student-dashboard/*" element={<StudentDashboard />} />
         <Route path="admin-dashboard/*" element={<AdminDashboard />} />

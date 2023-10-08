@@ -6,8 +6,8 @@ function Header({OpenSidebar}) {
   const navigate = useNavigate()
   const handleLogout = () => {
     console.log("Logged out");
-    window.localStorage.removeItem("isLoggedin")
-    navigate('/')
+    window.localStorage.removeItem("userType")
+    navigate('/');
  };
   
   return (
