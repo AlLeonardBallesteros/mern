@@ -4,15 +4,14 @@ import anim3 from './img/anim3.jpg';
 import anim4 from './img/anim4.jpg';
 import './studentdashboardcss/Courses.css';
 
+
 const Animation = () => {
   return (
     <div className="box_container">
-      
       <Box1 />
       <Box2 />
       <Box3 />
       <Box4 />
-      
     </div>
   );
 };

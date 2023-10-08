@@ -16,7 +16,9 @@ function Enrollees() {
     .catch((error) => console.error('Error fetching enrollment requests:', error));
 }, []);
 
-  const handleApproveRequest = () => {
+  const handleApproveRequest = (request) => {
+    // Your API request logic here
+    // ...
   };
 
   return (

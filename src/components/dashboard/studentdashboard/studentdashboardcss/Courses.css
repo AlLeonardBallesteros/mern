@@ -35,13 +35,22 @@
     transition: all 0.5s;
     border-radius: 10px;
 }
+.paragraph{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
 
 @media (max-width: 768px) {
     .box_container {
-        width: 90%; 
+      width: 90%;
     }
-
+  
     .box1, .box2, .box3, .box4 {
-        width: 45%;
+      width: 45%;
     }
-}
+  }
+  
+  
+  

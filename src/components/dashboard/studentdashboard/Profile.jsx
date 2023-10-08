@@ -11,7 +11,7 @@ const Profile = () => {
       contact_no: "",
     },
     enrollment: {
-      course: "",
+      course: "", // Initialize with an empty string
     },
   });
 
@@ -26,32 +26,47 @@ const Profile = () => {
 
   // Function to fetch student data from the server
   const fetchProfileData = () => {
-    // Replace 'yourToken' with the actual token and 'yourUserId' with the user ID
-    const yourToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdG5hbWUiOiJKb3BoZXIgSm9lIiwibGFzdG5hbWUiOiJSaWJvIiwiZW1haWwiOiJqb3NpLnJpYm8udXBAcGhpbm1hZWQuY29tIiwiaWQiOiI2NTFlYjMzNWQ5MWQ0MDFhMDkzOWNjZDQiLCJjb250YWN0X25vIjo5NDU3NDQ1OTIxLCJpYXQiOjE2OTY1MTA3OTZ9.0Kw1v5hX0CWnfYYq5pPVI7I4VlSmplyvVGW7ijNqs9I'; // Replace with your access token
-    const userId = '651eb335d91d401a0939ccd4'; // Replace with your user ID
-
+    const yourToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdG5hbWUiOiJKb3BoZXIiLCJsYXN0bmFtZSI6IlJpYm8iLCJlbWFpbCI6Impvc2kucmliby51cEBwaGlubWFlZC5jb20iLCJpZCI6IjY1MjBkNTI4NjEyODBlNGVkMjFkM2U5NiIsImNvbnRhY3Rfbm8iOjk0NTc0NDU5MjEsImlhdCI6MTY5Njc1NDA0MX0.U9WtDkxlnC7sUFrmyaA_qTJ8gXVMRpC9c_w0nAmY5lA'; // Replace with your authentication token
+    const userId = '6520d52861280e4ed21d3e96'; // Replace with the actual user ID
+  
     fetch(`http://localhost:4000/todos/findById/${userId}`, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${yourToken}`, // Include the token in the Authorization header
+        'Authorization': `Bearer ${yourToken}`,
         'Content-Type': 'application/json',
       },
     })
-      .then((response) => {
+      .then(async (response) => {
         console.log("Response Status:", response.status);
+        if (!response.ok) {
+          const errorMessage = await response.text(); // Get the error message from the response body
+          throw new Error(`HTTP Error! Status: ${response.status}, Message: ${errorMessage}`);
+        }
         return response.json();
       })
       .then((data) => {
         console.log("Response Data:", data);
-
-        // Set the combined user and enrollment data
-        setProfileData(data);
+  
+        const profile = {
+          user: {
+            firstname: data.user ? data.user.firstname || "" : "",
+            lastname: data.user ? data.user.lastname || "" : "",
+            email: data.user ? data.user.email || "" : "",
+            contact_no: data.user ? data.user.contact_no || "" : "",
+          },
+          enrollment: {
+            course: data.enrollment ? data.enrollment.course || "Not enrolled" : "Not enrolled",
+            // Add any other enrollment fields you need
+          },
+        };
+        setProfileData(profile);
       })
       .catch((error) => {
         console.error("Error fetching profile data:", error);
+        // Handle the error, for example, by showing an error message to the user.
       });
   };
-
+  
   // Fetch profile data when the component mounts
   useEffect(() => {
     console.log("Fetching profile data...");
@@ -59,63 +74,58 @@ const Profile = () => {
   }, []);
 
   return (
-
- <div className="profile-container">
-    <h1>Profile information</h1>
-    <div className="input-row">
-      <TextField
-        label="Course"
-        name="course"
-        value={profileData.enrollment.course}
-        onChange={handleChange}
-      />
+    <div className="profile-container">
+      <h1>Profile information</h1>
+      {profileData.user ? (
+        <div>
+          <TextField
+            label="Course"
+            name="course"
+            value={profileData.enrollment ? profileData.enrollment.course || 'No course data available' : 'No enrollment data available'}
+            onChange={handleChange}
+          />
+          <TextField
+            label="First Name"
+            name="firstname"
+            value={profileData.user.firstname || ""}
+            onChange={handleChange}
+            InputLabelProps={{
+              shrink: !!profileData.user.firstname,
+            }}
+          />
+          <TextField
+            label="Last Name"
+            name="lastname"
+            value={profileData.user.lastname || ""}
+            onChange={handleChange}
+            InputLabelProps={{
+              shrink: !!profileData.user.lastname,
+            }}
+          />
+          <TextField
+            label="Contact Number"
+            name="contact_no"
+            value={profileData.user.contact_no || ""}
+            onChange={handleChange}
+            InputLabelProps={{
+              shrink: !!profileData.user.contact_no,
+            }}
+          />
+          <TextField
+            label="Email Address"
+            name="email"
+            value={profileData.user.email || ""}
+            onChange={handleChange}
+            InputLabelProps={{
+              shrink: !!profileData.user.email,
+            }}
+          />
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
-    <div className="input-row">
-      <TextField
-        label="First Name"
-        name="firstname"
-        value={profileData.user.firstname}
-        onChange={handleChange}
-        InputLabelProps={{
-          shrink: !!profileData.user.firstname,
-        }}
-      />
-    </div>
-    <div className="input-row">
-      <TextField
-        label="Last Name"
-        name="lastname"
-        value={profileData.user.lastname}
-        onChange={handleChange}
-        InputLabelProps={{
-          shrink: !!profileData.user.lastname,
-        }}
-      />
-    </div>
-    <div className="input-row">
-      <TextField
-        label="Contact Number"
-        name="contact_no"
-        value={profileData.user.contact_no}
-        onChange={handleChange}
-        InputLabelProps={{
-          shrink: !!profileData.user.contact_no,
-        }}
-      />
-    </div>
-    <div className="input-row">
-      <TextField
-        label="Email Address"
-        name="email"
-        value={profileData.user.email}
-        onChange={handleChange}
-        InputLabelProps={{
-          shrink: !!profileData.user.email,
-        }}
-      />
-    </div>
-  </div>
-);
-      }
+  );
+};
 
 export default Profile;
