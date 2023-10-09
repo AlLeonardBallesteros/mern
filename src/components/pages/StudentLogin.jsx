@@ -10,6 +10,7 @@ function StudentLogin() {
 
   const handleLogin = async () => {
     try {
+      window.localStorage.setItem("userType", "admin");
       const response = await fetch('http://localhost:4000/user/login', {
         method: 'POST',
         headers: {
@@ -23,7 +24,6 @@ function StudentLogin() {
       } else {
         console.error('Login failed');
       }
-      window.localStorage.setItem("userType", "student");
     } catch (error) {
       console.error('Login error:', error);
     }

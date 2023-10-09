@@ -25,7 +25,6 @@ function AdminLogin() {
     if (email === 'admin@gmail.com' && password === 'admin') {
       // Navigate to the admin dashboard when login is successful
       navigate('/admin-dashboard/dashboard');
-      window.history.replaceState(null, null, '/admin-dashboard/dashboard');
     } else {
       alert('Invalid email or password');
     }
